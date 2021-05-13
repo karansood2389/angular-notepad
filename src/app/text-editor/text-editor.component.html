@@ -1,1 +1,35 @@
-<p>text-editor works!</p>
+<form
+  role="form"
+  #myForm="ngForm"
+  accept-charset="UTF-8"
+  (ngSubmit)="onSubmit()"
+  novalidate
+  class="margin-class"
+>
+  <div class="form-group">
+    <input
+      autofocus
+      autocomplete= falsr
+      type="text"
+      name="userName"
+      placeholder="Enter Title"
+      class="form-control form-class"
+      required
+      (change)="onTitleChange($event)"
+      id="pageContentTitle"
+    />
+  </div>
+  <ckeditor
+    [editor]="editor"
+    [data]="contentData.content"
+    (change)="onChange($event)"
+  ></ckeditor>
+
+  <div class="form-group mt-4">
+    <div class="row">
+      <div class="col-3 col-md-3 mb-3">
+        <button class="btn btn-info">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>

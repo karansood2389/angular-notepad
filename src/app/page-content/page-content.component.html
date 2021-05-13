@@ -1,1 +1,27 @@
-<p>page-content works!</p>
+<table class="table app-table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let data of res">
+      <th scope="row">{{ data.id }}</th>
+      <td>{{ data.title }}</td>
+      <td>{{ data.content.slice(3,300) + '.....' }}</td>
+      <td>
+        <button
+          (click)="getContentById(data.id)"
+          type="submit"
+          class="btn btn-info"
+        >
+          Details
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
